@@ -75,7 +75,9 @@ contract PaymentStreamTest is PRBTest, StdCheats {
         vm.startPrank(termSigners[0]);
         ps.terminate();
 
-        assertEq(ps._hasConfirmed(termSigners[0]), true);
+        (, bool hasConfirmed) = ps.termSigners(termSigners[0]);
+
+        assertEq(hasConfirmed, true);
         assertEq(ps.termConfirmations(), 1);
         vm.stopPrank();
 
