@@ -86,7 +86,8 @@ Legend:
 
 
 2. Fund the contract
-Send the ERC-20 tokens to the contract.
+
+Send the ERC-20 tokens that match `<erc20_token_address>` to the contract.
 
 ### Format
 
