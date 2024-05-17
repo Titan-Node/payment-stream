@@ -23,14 +23,6 @@ bun install
 
 This is a list of the most frequently needed commands.
 
-### Build
-
-Build the contracts:
-
-```
-forge build
-```
-
 ### Clean
 
 Delete the build artifacts and cache directories:
@@ -55,7 +47,30 @@ Get a test coverage report:
 forge coverage
 ```
 
-### Deploy
+### Deploy Factory Contract
+
+[Quick Deployment](https://book.getfoundry.sh/forge/deploying):
+
+1. Deploy contract:
+```
+forge create --rpc-url <rpc> \
+    --private-key <pk> \
+    --etherscan-api-key <api_key> \
+    --verify \
+    src/PaymentStreamFactory.sol:PaymentStreamFactory
+```
+Legend:
+```
+<rpc> - Chain RPC endpoint
+<pk> - Contract deployers private key
+<api_key> - Etherscan api key
+```
+
+2. Create streams
+
+Visit Etherscan contract address to deploy unlimited streams through the web portal.
+
+### Deploy Single Payment Stream
 
 [Quick Deployment](https://book.getfoundry.sh/forge/deploying):
 
