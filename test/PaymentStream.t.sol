@@ -39,7 +39,7 @@ contract PaymentStreamTest is PRBTest, StdCheats {
 
         uint256 duration = 1 weeks;
 
-        ps = new PaymentStream(payee, duration, address(paymentToken), 7e18, termSigners, termSigners[0]);
+        ps = new PaymentStream(payee, duration, address(paymentToken), 7e18, termSigners[0], termSigners[1], termSigners[0]);
 
         paymentToken.transfer(address(ps), 7e18);
     }

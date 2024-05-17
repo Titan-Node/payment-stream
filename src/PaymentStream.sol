@@ -40,11 +40,12 @@ contract PaymentStream {
         uint256 _duration,
         address _paymentToken,
         uint256 _paymentAmount,
-        address[2] memory _termSigners,
+        address _termSigner1,
+        address _termSigner2,
         address _termReceiver
     ) {
         require(
-            _payee != address(0) && _termSigners[0] != address(0) && _termSigners[1] != address(0)
+            _payee != address(0) && _termSigner1 != address(0) && _termSigner2 != address(0)
                 && _termReceiver != address(0),
             "Invalid args"
         );
@@ -57,8 +58,8 @@ contract PaymentStream {
         paymentAmount = _paymentAmount;
 
         // Set Term Signers
-        termSigners[_termSigners[0]] = TermSigner(true, false);
-        termSigners[_termSigners[1]] = TermSigner(true, false);
+        termSigners[_termSigner1] = TermSigner(true, false);
+        termSigners[_termSigner2] = TermSigner(true, false);
         termSigners[_payee] = TermSigner(true, false);
 
         termReceiver = _termReceiver;
